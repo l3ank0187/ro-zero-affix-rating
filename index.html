@@ -4,7 +4,6 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Ragnarok ZERO — ตรวจคะแนนออปชั่น</title>
-<meta name="google-adsense-account" content="ca-pub-9840803758189709">
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;600;700&display=swap" rel="stylesheet" />
 <style>
@@ -12,15 +11,13 @@
   .star { font-size: 1.6rem; color: #475569; transition: color .2s; }
   .star.on { color: #facc15; text-shadow: 0 0 8px rgba(250,204,21,.6); }
   .slot-card { background: #1e293b; border: 1px solid #334155; border-radius: .75rem; }
-  .btn-primary { background: linear-gradient(90deg,#2563eb,#4f46e5); }
-  .btn-primary:hover { filter: brightness(1.1); }
 </style>
 </head>
 <body class="min-h-screen">
   <div class="max-w-5xl mx-auto px-4 py-8">
     <header class="text-center mb-8">
       <h1 class="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 mb-2">Ragnarok ZERO — เครื่องมือตรวจคะแนนออปชั่น</h1>
-      <p class="text-slate-400">เลือกออปชั่นที่ได้จากอุปกรณ์แต่ละช่อง ระบบจะคำนวณคะแนน 1-10 ดาวจากข้อมูลของ <a href="https://rozerodb.com/tools/affixes" class="text-blue-400 hover:underline" target="_blank">RozeroDB</a> และ <a href="https://midgardhub.com/tools/affix" class="text-blue-400 hover:underline" target="_blank">MidgardHub</a></p>
+      <p class="text-slate-400">เลือกออปชั่นที่ได้จากอุปกรณ์แต่ละช่อง ระบบจะคำนวณคะแนน 1-10 ดาว</p>
     </header>
 
     <div class="grid md:grid-cols-2 gap-6 mb-6">
@@ -3152,6 +3149,1013 @@ const AFFIX_DATA = {
         }
       ]
     }
+  },
+  "RagnarokZero": {
+    "Armor": {
+      "1": [
+        {
+          "name": "MaxHP",
+          "pool": null,
+          "roll": "150-350"
+        },
+        {
+          "name": "MaxSP",
+          "pool": null,
+          "roll": "25-50"
+        },
+        {
+          "name": "MaxHP (%)",
+          "pool": null,
+          "roll": "1-5"
+        },
+        {
+          "name": "MaxSP (%)",
+          "pool": null,
+          "roll": "1-5"
+        }
+      ],
+      "2": [
+        {
+          "name": "HP Recovery speed increase (%)",
+          "pool": null,
+          "roll": "15-50"
+        },
+        {
+          "name": "SP Recovery speed increase (%)",
+          "pool": null,
+          "roll": "15-50"
+        },
+        {
+          "name": "FLEE",
+          "pool": null,
+          "roll": "5-15"
+        },
+        {
+          "name": "DEF",
+          "pool": null,
+          "roll": "10-30"
+        },
+        {
+          "name": "MDEF",
+          "pool": null,
+          "roll": "1-5"
+        },
+        {
+          "name": "Received Healing increase",
+          "pool": null,
+          "roll": "3-7"
+        },
+        {
+          "name": "Variable Casting reduction",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Phys Damage from Neutral enemies reduction (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Phys Damage from Water enemies reduction (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Phys Damage from Earth enemies reduction (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Phys Damage from Fire enemies reduction (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Phys Damage from Wind enemies reduction (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Phys Damage from Poison enemies reduction (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Phys Damage from Holy enemies reduction (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Phys Damage from Shadow enemies reduction (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Phys Damage from Ghost enemies reduction (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Phys Damage from Undead enemies reduction (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Magic Damage from Neutral enemies reduction (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Magic Damage from Water enemies reduction (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Magic Damage from Earth enemies reduction (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Magic Damage from Fire enemies reduction (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Magic Damage from Wind enemies reduction (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Magic Damage from Poison enemies reduction (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Magic Damage from Holy enemies reduction (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Magic Damage from Shadow enemies reduction (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Magic Damage from Ghost enemies reduction (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Magic Damage from Undead enemies reduction (%)",
+          "pool": null,
+          "roll": "5-10"
+        }
+      ],
+      "3": [
+        {
+          "name": "MaxHP",
+          "pool": null,
+          "roll": "150-350"
+        },
+        {
+          "name": "MaxSP",
+          "pool": null,
+          "roll": "25-50"
+        },
+        {
+          "name": "Resistance to Formless (%)",
+          "pool": null,
+          "roll": "3-7"
+        },
+        {
+          "name": "Resistance to Undead (%)",
+          "pool": null,
+          "roll": "3-7"
+        },
+        {
+          "name": "Resistance to Brute (%)",
+          "pool": null,
+          "roll": "3-7"
+        },
+        {
+          "name": "Resistance to Plant (%)",
+          "pool": null,
+          "roll": "3-7"
+        },
+        {
+          "name": "Resistance to Insect (%)",
+          "pool": null,
+          "roll": "3-7"
+        },
+        {
+          "name": "Resistance to Fish (%)",
+          "pool": null,
+          "roll": "3-7"
+        },
+        {
+          "name": "Resistance to Demon (%)",
+          "pool": null,
+          "roll": "3-7"
+        },
+        {
+          "name": "Resistance to Demi-Human (%)",
+          "pool": null,
+          "roll": "3-7"
+        },
+        {
+          "name": "Resistance to Angel (%)",
+          "pool": null,
+          "roll": "3-7"
+        },
+        {
+          "name": "Resistance to Dragon (%)",
+          "pool": null,
+          "roll": "3-7"
+        }
+      ]
+    },
+    "Garment": {
+      "1": [
+        {
+          "name": "MaxHP",
+          "pool": null,
+          "roll": "150-250"
+        },
+        {
+          "name": "MaxSP",
+          "pool": null,
+          "roll": "25-50"
+        },
+        {
+          "name": "MaxHP (%)",
+          "pool": null,
+          "roll": "1-5"
+        },
+        {
+          "name": "MaxSP (%)",
+          "pool": null,
+          "roll": "1-5"
+        }
+      ],
+      "2": [
+        {
+          "name": "FLEE",
+          "pool": null,
+          "roll": "5-15"
+        },
+        {
+          "name": "DEF",
+          "pool": null,
+          "roll": "10-50"
+        },
+        {
+          "name": "MDEF",
+          "pool": null,
+          "roll": "2-5"
+        },
+        {
+          "name": "Received Healing increase",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Variable Casting reduction",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Phys Damage from Neutral enemies reduction (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Phys Damage from Water enemies reduction (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Phys Damage from Earth enemies reduction (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Phys Damage from Fire enemies reduction (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Phys Damage from Wind enemies reduction (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Phys Damage from Poison enemies reduction (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Phys Damage from Holy enemies reduction (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Phys Damage from Shadow enemies reduction (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Phys Damage from Ghost enemies reduction (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Phys Damage from Undead enemies reduction (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Magic Damage from Neutral enemies reduction (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Magic Damage from Water enemies reduction (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Magic Damage from Earth enemies reduction (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Magic Damage from Fire enemies reduction (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Magic Damage from Wind enemies reduction (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Magic Damage from Poison enemies reduction (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Magic Damage from Holy enemies reduction (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Magic Damage from Shadow enemies reduction (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Magic Damage from Ghost enemies reduction (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Magic Damage from Undead enemies reduction (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Water resistance increase (%)",
+          "pool": null,
+          "roll": "1-5"
+        },
+        {
+          "name": "Earth resistance increase (%)",
+          "pool": null,
+          "roll": "1-5"
+        },
+        {
+          "name": "Fire resistance increase (%)",
+          "pool": null,
+          "roll": "1-5"
+        },
+        {
+          "name": "Wind resistance increase (%)",
+          "pool": null,
+          "roll": "1-5"
+        },
+        {
+          "name": "Poison resistance increase (%)",
+          "pool": null,
+          "roll": "1-5"
+        },
+        {
+          "name": "Holy resistance increase (%)",
+          "pool": null,
+          "roll": "1-5"
+        },
+        {
+          "name": "Shadow resistance increase (%)",
+          "pool": null,
+          "roll": "1-5"
+        },
+        {
+          "name": "Ghost resistance increase (%)",
+          "pool": null,
+          "roll": "1-5"
+        },
+        {
+          "name": "Undead resistance increase (%)",
+          "pool": null,
+          "roll": "1-5"
+        }
+      ],
+      "3": [
+        {
+          "name": "MaxHP",
+          "pool": null,
+          "roll": "150-300"
+        },
+        {
+          "name": "MaxSP",
+          "pool": null,
+          "roll": "25-50"
+        },
+        {
+          "name": "Resistance to Formless (%)",
+          "pool": null,
+          "roll": "3-7"
+        },
+        {
+          "name": "Resistance to Undead (%)",
+          "pool": null,
+          "roll": "3-7"
+        },
+        {
+          "name": "Resistance to Brute (%)",
+          "pool": null,
+          "roll": "3-7"
+        },
+        {
+          "name": "Resistance to Plant (%)",
+          "pool": null,
+          "roll": "3-7"
+        },
+        {
+          "name": "Resistance to Insect (%)",
+          "pool": null,
+          "roll": "3-7"
+        },
+        {
+          "name": "Resistance to Fish (%)",
+          "pool": null,
+          "roll": "3-7"
+        },
+        {
+          "name": "Resistance to Demon (%)",
+          "pool": null,
+          "roll": "3-7"
+        },
+        {
+          "name": "Resistance to Demi-Human (%)",
+          "pool": null,
+          "roll": "3-7"
+        },
+        {
+          "name": "Resistance to Angel (%)",
+          "pool": null,
+          "roll": "3-7"
+        },
+        {
+          "name": "Resistance to Dragon (%)",
+          "pool": null,
+          "roll": "3-7"
+        }
+      ]
+    },
+    "Shoes": {
+      "1": [
+        {
+          "name": "MaxHP",
+          "pool": null,
+          "roll": "150-250"
+        },
+        {
+          "name": "MaxSP",
+          "pool": null,
+          "roll": "25-50"
+        },
+        {
+          "name": "MaxHP (%)",
+          "pool": null,
+          "roll": "1-5"
+        },
+        {
+          "name": "MaxSP (%)",
+          "pool": null,
+          "roll": "1-5"
+        }
+      ],
+      "2": [
+        {
+          "name": "FLEE",
+          "pool": null,
+          "roll": "5-15"
+        },
+        {
+          "name": "DEF",
+          "pool": null,
+          "roll": "10-50"
+        },
+        {
+          "name": "MDEF",
+          "pool": null,
+          "roll": "2-5"
+        },
+        {
+          "name": "Received Healing increase",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "HIT",
+          "pool": null,
+          "roll": "5-10"
+        }
+      ],
+      "3": [
+        {
+          "name": "MaxHP",
+          "pool": null,
+          "roll": "150-300"
+        },
+        {
+          "name": "MaxSP",
+          "pool": null,
+          "roll": "25-50"
+        },
+        {
+          "name": "Resistance to Formless (%)",
+          "pool": null,
+          "roll": "3-7"
+        },
+        {
+          "name": "Resistance to Undead (%)",
+          "pool": null,
+          "roll": "3-7"
+        },
+        {
+          "name": "Resistance to Brute (%)",
+          "pool": null,
+          "roll": "3-7"
+        },
+        {
+          "name": "Resistance to Plant (%)",
+          "pool": null,
+          "roll": "3-7"
+        },
+        {
+          "name": "Resistance to Insect (%)",
+          "pool": null,
+          "roll": "3-7"
+        },
+        {
+          "name": "Resistance to Fish (%)",
+          "pool": null,
+          "roll": "3-7"
+        },
+        {
+          "name": "Resistance to Demon (%)",
+          "pool": null,
+          "roll": "3-7"
+        },
+        {
+          "name": "Resistance to Demi-Human (%)",
+          "pool": null,
+          "roll": "3-7"
+        },
+        {
+          "name": "Resistance to Angel (%)",
+          "pool": null,
+          "roll": "3-7"
+        },
+        {
+          "name": "Resistance to Dragon (%)",
+          "pool": null,
+          "roll": "3-7"
+        }
+      ]
+    },
+    "Physical Weapon": {
+      "1": [
+        {
+          "name": "ATK",
+          "pool": null,
+          "roll": "5-30"
+        },
+        {
+          "name": "ATK (%)",
+          "pool": null,
+          "roll": "1-5"
+        }
+      ],
+      "2": [
+        {
+          "name": "ASPD increase (%)",
+          "pool": null,
+          "roll": "5-7"
+        },
+        {
+          "name": "HIT",
+          "pool": null,
+          "roll": "5-20"
+        },
+        {
+          "name": "FLEE",
+          "pool": null,
+          "roll": "10-20"
+        },
+        {
+          "name": "CRI",
+          "pool": null,
+          "roll": "2-5"
+        },
+        {
+          "name": "Critical Damage increase (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Physical Damage to Neutral enemies (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Physical Damage to Water enemies (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Physical Damage to Earth enemies (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Physical Damage to Fire enemies (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Physical Damage to Wind enemies (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Physical Damage to Poison enemies (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Physical Damage to Holy enemies (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Physical Damage to Shadow enemies (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Physical Damage to Ghost enemies (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Physical Damage to Undead enemies (%)",
+          "pool": null,
+          "roll": "5-10"
+        }
+      ],
+      "3": [
+        {
+          "name": "Phys Damage to Formless monsters (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Phys Damage to Undead monsters (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Phys Damage to Brute monsters (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Phys Damage to Plant monsters (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Phys Damage to Insect monsters (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Phys Damage to Fish monsters (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Phys Damage to Demon monsters (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Phys Damage to Demi-Human monsters (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Phys Damage to Angel monsters (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Phys Damage to Dragon monsters (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Ignore Formless Phys Def (%)",
+          "pool": null,
+          "roll": "5-15"
+        },
+        {
+          "name": "Ignore Undead Phys Def (%)",
+          "pool": null,
+          "roll": "5-15"
+        },
+        {
+          "name": "Ignore Brute Phys Def (%)",
+          "pool": null,
+          "roll": "5-15"
+        },
+        {
+          "name": "Ignore Plant Phys Def (%)",
+          "pool": null,
+          "roll": "5-15"
+        },
+        {
+          "name": "Ignore Insect Phys Def (%)",
+          "pool": null,
+          "roll": "5-15"
+        },
+        {
+          "name": "Ignore Fish Phys Def (%)",
+          "pool": null,
+          "roll": "5-15"
+        },
+        {
+          "name": "Ignore Demon Phys Def (%)",
+          "pool": null,
+          "roll": "5-15"
+        },
+        {
+          "name": "Ignore Demi-Human Phys Def (%)",
+          "pool": null,
+          "roll": "5-15"
+        },
+        {
+          "name": "Ignore Angel Phys Def (%)",
+          "pool": null,
+          "roll": "5-15"
+        },
+        {
+          "name": "Ignore Dragon Phys Def (%)",
+          "pool": null,
+          "roll": "5-15"
+        },
+        {
+          "name": "Ignore Normal Enemy Phys Def (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Phys Damage to Normal enemies (%)",
+          "pool": null,
+          "roll": "3-7"
+        },
+        {
+          "name": "Phys Damage to Boss enemies (%)",
+          "pool": null,
+          "roll": "3-7"
+        }
+      ]
+    },
+    "Magical Weapon": {
+      "1": [
+        {
+          "name": "MATK",
+          "pool": null,
+          "roll": "5-30"
+        },
+        {
+          "name": "MATK (%)",
+          "pool": null,
+          "roll": "1-5"
+        }
+      ],
+      "2": [
+        {
+          "name": "FLEE",
+          "pool": null,
+          "roll": "10-20"
+        },
+        {
+          "name": "Heal increase (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Variable Casting reduction (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Magic Damage to Neutral enemies (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Magic Damage to Water enemies (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Magic Damage to Earth enemies (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Magic Damage to Fire enemies (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Magic Damage to Wind enemies (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Magic Damage to Poison enemies (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Magic Damage to Holy enemies (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Magic Damage to Shadow enemies (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Magic Damage to Ghost enemies (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Magic Damage to Undead enemies (%)",
+          "pool": null,
+          "roll": "5-10"
+        }
+      ],
+      "3": [
+        {
+          "name": "Magic Damage to Formless monsters (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Magic Damage to Undead monsters (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Magic Damage to Brute monsters (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Magic Damage to Plant monsters (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Magic Damage to Insect monsters (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Magic Damage to Fish monsters (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Magic Damage to Demon monsters (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Magic Damage to Demi-Human monsters (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Magic Damage to Angel monsters (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Magic Damage to Dragon monsters (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Ignore Formless Magic Def (%)",
+          "pool": null,
+          "roll": "5-15"
+        },
+        {
+          "name": "Ignore Undead Magic Def (%)",
+          "pool": null,
+          "roll": "5-15"
+        },
+        {
+          "name": "Ignore Brute Magic Def (%)",
+          "pool": null,
+          "roll": "5-15"
+        },
+        {
+          "name": "Ignore Plant Magic Def (%)",
+          "pool": null,
+          "roll": "5-15"
+        },
+        {
+          "name": "Ignore Insect Magic Def (%)",
+          "pool": null,
+          "roll": "5-15"
+        },
+        {
+          "name": "Ignore Fish Magic Def (%)",
+          "pool": null,
+          "roll": "5-15"
+        },
+        {
+          "name": "Ignore Demon Magic Def (%)",
+          "pool": null,
+          "roll": "5-15"
+        },
+        {
+          "name": "Ignore Demi-Human Magic Def (%)",
+          "pool": null,
+          "roll": "5-15"
+        },
+        {
+          "name": "Ignore Angel Magic Def (%)",
+          "pool": null,
+          "roll": "5-15"
+        },
+        {
+          "name": "Ignore Dragon Magic Def (%)",
+          "pool": null,
+          "roll": "5-15"
+        },
+        {
+          "name": "Ignore Normal Enemy Magic Def (%)",
+          "pool": null,
+          "roll": "5-10"
+        },
+        {
+          "name": "Magic Damage to Normal enemies (%)",
+          "pool": null,
+          "roll": "3-7"
+        },
+        {
+          "name": "Magic Damage to Boss enemies (%)",
+          "pool": null,
+          "roll": "3-7"
+        },
+        {
+          "name": "Heal increase (%)",
+          "pool": null,
+          "roll": "5-10"
+        }
+      ]
+    }
   }
 };
 
@@ -3163,11 +4167,31 @@ const scoreNum = document.getElementById('scoreNum');
 const gradeLabel = document.getElementById('gradeLabel');
 const detailScore = document.getElementById('detailScore');
 
+const sourceLabels = {
+  'Monster Drop': 'ดรอปจากมอนสเตอร์',
+  'MVP Drop': 'ดรอปจาก MVP',
+  'Blacksmith Forging': 'ตีเหล็ก Blacksmith',
+  'Activation System': 'ระบบ Activation',
+  'Glast Heim': 'Glast Heim',
+  'RagnarokZero': 'RagnarokZero.ro'
+};
+const seriesLabels = {
+  'Armor': 'เกราะ',
+  'Garment': 'ผ้าคลุม',
+  'Magic Series': 'สายเวท',
+  'Melee Series': 'สายตีระยะใกล้',
+  'Ranged Series': 'สายตีระยะไกล',
+  'Shoes': 'รองเท้า',
+  'Forging Weapons': 'อาวุธที่ตีเหล็ก',
+  'Physical Series': 'สายกายภาพ',
+  'Physical Weapon': 'อาวุธกายภาพ',
+  'Magical Weapon': 'อาวุธเวท',
+};
+
 function parseRange(r) {
   const m = String(r).match(/(-?\d+(?:\.\d+)?)\s*[-~]\s*(-?\d+(?:\.\d+)?)/);
   return m ? [parseFloat(m[1]), parseFloat(m[2])] : [0,0];
 }
-
 function poolWeight(pool) {
   if (pool == null) return 1.25;
   if (pool >= 5) return 1.25;
@@ -3181,23 +4205,10 @@ function slotWeight(slot) {
   if (s === 2) return 1.1;
   return 1.0;
 }
-const sourceLabels = {
-  'Monster Drop': 'ดรอปจากมอนสเตอร์',
-  'MVP Drop': 'ดรอปจาก MVP',
-  'Blacksmith Forging': 'ตีเหล็ก Blacksmith',
-  'Activation System': 'ระบบ Activation',
-  'Glast Heim': 'Glast Heim'
-};
-const seriesLabels = {
-  'Armor': 'เกราะ',
-  'Garment': 'ผ้าคลุม',
-  'Magic Series': 'สายเวท',
-  'Melee Series': 'สายตีระยะใกล้',
-  'Ranged Series': 'สายตีระยะไกล',
-  'Shoes': 'รองเท้า',
-  'Forging Weapons': 'อาวุธที่ตีเหล็ก',
-  'Physical Series': 'สายกายภาพ'
-};
+function escapeHtml(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
 function populateSources() {
   sourceSel.innerHTML = '';
   Object.keys(AFFIX_DATA).forEach(s => {
@@ -3248,9 +4259,6 @@ function buildSlots() {
   attachListeners();
   calculate();
 }
-function escapeHtml(s) {
-  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-}
 function attachListeners() {
   document.querySelectorAll('.affix-select').forEach(sel => {
     sel.addEventListener('change', () => {
@@ -3285,7 +4293,7 @@ function attachListeners() {
 function calculate() {
   let total = 0, maxTotal = 0, filled = 0;
   document.querySelectorAll('#slotsContainer .slot-card').forEach(card => {
-      const slot = card.querySelector('.affix-select').dataset.slot;
+    const slot = card.querySelector('.affix-select').dataset.slot;
     const sel = card.querySelector('.affix-select');
     const inp = card.querySelector('.roll-input');
     if (!sel.value) return;
@@ -3305,9 +4313,9 @@ function calculate() {
   });
   let score = 0;
   if (filled > 0 && maxTotal > 0) score = (total / maxTotal) * 10;
-  renderStars(score, filled, maxTotal);
+  renderStars(score, filled);
 }
-function renderStars(score, filled, maxTotal) {
+function renderStars(score, filled) {
   scoreNum.textContent = score.toFixed(2);
   starRow.innerHTML = '';
   for (let i = 1; i <= 10; i++) {
