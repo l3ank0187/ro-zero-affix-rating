@@ -52,18 +52,28 @@
         <span>⚙️</span> ระบบแอดมินราคา
       </button>
       <div id="priceAdmin" class="hidden mt-3">
-        <p class="text-xs text-slate-400 mb-2">ตั้งราคาฐานและตัวคูณตามดาว ระบบจะประเมินราคาใต้คะแนน</p>
-        <div class="mb-3">
-          <label class="block text-xs text-slate-400 mb-1">ราคาฐาน (Zeny)</label>
-          <input type="number" id="basePrice" class="w-full bg-slate-800 border border-slate-600 rounded px-3 py-2 text-sm text-white" placeholder="0" />
+        <div id="priceLogin">
+          <p class="text-xs text-slate-400 mb-2">ใส่รหัสผ่านเพื่อตั้งค่าราคา</p>
+          <div class="flex gap-2">
+            <input type="password" id="adminPassword" class="w-full bg-slate-800 border border-slate-600 rounded px-3 py-2 text-sm text-white" placeholder="รหัสผ่าน" />
+            <button id="verifyPasswordBtn" class="px-4 py-2 bg-blue-600 hover:bg-blue-500 rounded text-sm text-white">เข้าสู่ระบบ</button>
+          </div>
+          <p id="loginError" class="text-xs text-red-400 mt-1 hidden">รหัสผ่านไม่ถูกต้อง</p>
         </div>
-        <div class="mb-2 text-xs text-slate-400">ตัวคูณตามดาว</div>
-        <div class="grid grid-cols-5 gap-2 mb-3" id="multGrid"></div>
-        <div class="flex flex-wrap gap-2">
-          <button id="savePriceBtn" class="px-3 py-1.5 bg-blue-600 hover:bg-blue-500 rounded text-sm text-white">บันทึก</button>
-          <button id="exportPriceBtn" class="px-3 py-1.5 bg-slate-600 hover:bg-slate-500 rounded text-sm text-white">ส่งออก JSON</button>
-          <button id="importPriceBtn" class="px-3 py-1.5 bg-slate-600 hover:bg-slate-500 rounded text-sm text-white">นำเข้า JSON</button>
-          <input type="file" id="importPriceFile" class="hidden" accept=".json" />
+        <div id="priceForm" class="hidden">
+          <p class="text-xs text-slate-400 mb-2">ตั้งราคาฐานและตัวคูณตามดาว ระบบจะประเมินราคาใต้คะแนน</p>
+          <div class="mb-3">
+            <label class="block text-xs text-slate-400 mb-1">ราคาฐาน (Zeny)</label>
+            <input type="number" id="basePrice" class="w-full bg-slate-800 border border-slate-600 rounded px-3 py-2 text-sm text-white" placeholder="0" />
+          </div>
+          <div class="mb-2 text-xs text-slate-400">ตัวคูณตามดาว</div>
+          <div class="grid grid-cols-5 gap-2 mb-3" id="multGrid"></div>
+          <div class="flex flex-wrap gap-2">
+            <button id="savePriceBtn" class="px-3 py-1.5 bg-blue-600 hover:bg-blue-500 rounded text-sm text-white">บันทึก</button>
+            <button id="exportPriceBtn" class="px-3 py-1.5 bg-slate-600 hover:bg-slate-500 rounded text-sm text-white">ส่งออก JSON</button>
+            <button id="importPriceBtn" class="px-3 py-1.5 bg-slate-600 hover:bg-slate-500 rounded text-sm text-white">นำเข้า JSON</button>
+            <input type="file" id="importPriceFile" class="hidden" accept=".json" />
+          </div>
         </div>
       </div>
     </div>
@@ -3227,6 +3237,19 @@ const defaultMultipliers = {
   6: 1.7, 7: 2.3, 8: 3.5, 9: 5.5, 10: 8.0
 };
 let priceConfig = { base: 0, multipliers: { ...defaultMultipliers } };
+const ADMIN_PASSWORD = 'admin123';
+
+function verifyPassword() {
+  const input = document.getElementById('adminPassword').value;
+  if (input === ADMIN_PASSWORD) {
+    document.getElementById('priceLogin').classList.add('hidden');
+    document.getElementById('priceForm').classList.remove('hidden');
+    document.getElementById('loginError').classList.add('hidden');
+    sessionStorage.setItem('priceAdminAuth', '1');
+  } else {
+    document.getElementById('loginError').classList.remove('hidden');
+  }
+}
 
 function loadPriceConfig() {
   try {
@@ -3239,6 +3262,10 @@ function loadPriceConfig() {
   } catch (e) {}
   document.getElementById('basePrice').value = priceConfig.base || '';
   renderMultGrid();
+  if (sessionStorage.getItem('priceAdminAuth') === '1') {
+    document.getElementById('priceLogin').classList.add('hidden');
+    document.getElementById('priceForm').classList.remove('hidden');
+  }
 }
 function renderMultGrid() {
   const grid = document.getElementById('multGrid');
@@ -3442,6 +3469,10 @@ document.getElementById('resetBtn').addEventListener('click', () => {
 
 document.getElementById('togglePriceBtn').addEventListener('click', () => {
   document.getElementById('priceAdmin').classList.toggle('hidden');
+});
+document.getElementById('verifyPasswordBtn').addEventListener('click', verifyPassword);
+document.getElementById('adminPassword').addEventListener('keypress', e => {
+  if (e.key === 'Enter') verifyPassword();
 });
 document.getElementById('savePriceBtn').addEventListener('click', savePriceConfig);
 document.getElementById('exportPriceBtn').addEventListener('click', exportPriceConfig);
