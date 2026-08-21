@@ -44,8 +44,9 @@
       <h2 class="text-xl font-semibold mb-2">คะแนน / ระดับ</h2>
       <div id="starRow" class="flex justify-center gap-1 mb-3"></div>
       <div class="text-4xl font-bold mb-1"><span id="scoreNum">0.0</span><span class="text-lg text-slate-400">/10</span></div>
-      <div id="gradeLabel" class="text-lg font-semibold text-blue-300">ยังไม่ได้ใส่ข้อมูล</div>
+      <div id="gradeLabel" class="text-lg font-semibold text-blue-300">ยังไม่ได้เลือกออปชั่น</div>
       <div id="detailScore" class="text-sm text-slate-400 mt-2"></div>
+      <div class="text-xs text-slate-500 mt-1">คะแนนคิดจาก % Roll ที่ได้ เทียบกับค่าสูงสุด ถ่วงน้ำหนักตามช่องและ Pool</div>
     </div>
 
     <footer class="text-center text-slate-500 text-sm mt-8">
@@ -3325,7 +3326,12 @@ function renderStars(score, filled, maxTotal) {
   else if (score >= 2) label = 'ต่ำกว่ามาตรฐาน';
   else label = 'แย่';
   gradeLabel.textContent = label;
-  detailScore.textContent = filled > 0 ? `คิดจาก ${filled} ช่อง / คะแนนเต็ม ${maxTotal.toFixed(2)}` : '';
+  if (filled > 0) {
+    const avgPct = ((score / 10) * 100).toFixed(1);
+    detailScore.textContent = `คิดจาก ${filled} ช่อง / Roll เฉลี่ย ${avgPct}% ของค่าสูงสุด`;
+  } else {
+    detailScore.textContent = '';
+  }
 }
 
 sourceSel.addEventListener('change', populateSeries);
