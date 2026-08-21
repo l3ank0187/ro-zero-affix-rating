@@ -43,7 +43,29 @@
       <div class="text-4xl font-bold mb-1"><span id="scoreNum">0.0</span><span class="text-lg text-slate-400">/10</span></div>
       <div id="gradeLabel" class="text-lg font-semibold text-blue-300">ยังไม่ได้เลือกออปชั่น</div>
       <div id="detailScore" class="text-sm text-slate-400 mt-2"></div>
+      <div id="priceEstimate" class="text-lg font-bold text-green-400 mt-2"></div>
       <div class="text-xs text-slate-500 mt-1">คะแนนคิดจาก % Roll ที่ได้ เทียบกับค่าสูงสุด ถ่วงน้ำหนักตามช่องและ Pool</div>
+    </div>
+
+    <div class="slot-card p-4 mb-6">
+      <button id="togglePriceBtn" class="text-sm text-slate-300 hover:text-white flex items-center gap-1">
+        <span>⚙️</span> ระบบแอดมินราคา
+      </button>
+      <div id="priceAdmin" class="hidden mt-3">
+        <p class="text-xs text-slate-400 mb-2">ตั้งราคาฐานและตัวคูณตามดาว ระบบจะประเมินราคาใต้คะแนน</p>
+        <div class="mb-3">
+          <label class="block text-xs text-slate-400 mb-1">ราคาฐาน (Zeny)</label>
+          <input type="number" id="basePrice" class="w-full bg-slate-800 border border-slate-600 rounded px-3 py-2 text-sm text-white" placeholder="0" />
+        </div>
+        <div class="mb-2 text-xs text-slate-400">ตัวคูณตามดาว</div>
+        <div class="grid grid-cols-5 gap-2 mb-3" id="multGrid"></div>
+        <div class="flex flex-wrap gap-2">
+          <button id="savePriceBtn" class="px-3 py-1.5 bg-blue-600 hover:bg-blue-500 rounded text-sm text-white">บันทึก</button>
+          <button id="exportPriceBtn" class="px-3 py-1.5 bg-slate-600 hover:bg-slate-500 rounded text-sm text-white">ส่งออก JSON</button>
+          <button id="importPriceBtn" class="px-3 py-1.5 bg-slate-600 hover:bg-slate-500 rounded text-sm text-white">นำเข้า JSON</button>
+          <input type="file" id="importPriceFile" class="hidden" accept=".json" />
+        </div>
+      </div>
     </div>
 
     <footer class="text-center text-slate-500 text-sm mt-8">
@@ -3159,6 +3181,7 @@ const starRow = document.getElementById('starRow');
 const scoreNum = document.getElementById('scoreNum');
 const gradeLabel = document.getElementById('gradeLabel');
 const detailScore = document.getElementById('detailScore');
+const priceEstimate = document.getElementById('priceEstimate');
 
 const sourceLabels = {
   'Monster Drop': 'ดรอปจากมอนสเตอร์',
@@ -3197,6 +3220,82 @@ function slotWeight(slot) {
 }
 function escapeHtml(s) {
   return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+const defaultMultipliers = {
+  1: 0.5, 2: 0.7, 3: 0.9, 4: 1.0, 5: 1.3,
+  6: 1.7, 7: 2.3, 8: 3.5, 9: 5.5, 10: 8.0
+};
+let priceConfig = { base: 0, multipliers: { ...defaultMultipliers } };
+
+function loadPriceConfig() {
+  try {
+    const saved = localStorage.getItem('roZeroPriceConfig');
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      priceConfig.base = parseFloat(parsed.base) || 0;
+      priceConfig.multipliers = { ...defaultMultipliers, ...(parsed.multipliers || {}) };
+    }
+  } catch (e) {}
+  document.getElementById('basePrice').value = priceConfig.base || '';
+  renderMultGrid();
+}
+function renderMultGrid() {
+  const grid = document.getElementById('multGrid');
+  grid.innerHTML = '';
+  for (let i = 1; i <= 10; i++) {
+    const div = document.createElement('div');
+    div.innerHTML = `<label class="block text-xs text-slate-400 mb-1">${i} ดาว</label>
+      <input type="number" step="0.1" data-star="${i}" class="mult-input w-full bg-slate-800 border border-slate-600 rounded px-2 py-1 text-sm text-white" value="${priceConfig.multipliers[i]}" />`;
+    grid.appendChild(div);
+  }
+}
+function savePriceConfig() {
+  priceConfig.base = parseFloat(document.getElementById('basePrice').value) || 0;
+  document.querySelectorAll('.mult-input').forEach(inp => {
+    const star = parseInt(inp.dataset.star);
+    priceConfig.multipliers[star] = parseFloat(inp.value) || 0;
+  });
+  localStorage.setItem('roZeroPriceConfig', JSON.stringify(priceConfig));
+  calculate();
+}
+function updatePriceEstimate(score) {
+  if (!priceEstimate) return;
+  const base = priceConfig.base || 0;
+  if (base <= 0 || score <= 0) {
+    priceEstimate.textContent = '';
+    return;
+  }
+  const star = Math.min(10, Math.max(1, Math.floor(score)));
+  const mult = priceConfig.multipliers[star] || 1;
+  const price = Math.round(base * mult);
+  priceEstimate.textContent = `ราคาประเมิน: ${price.toLocaleString()} Zeny`;
+}
+function exportPriceConfig() {
+  const blob = new Blob([JSON.stringify(priceConfig, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'price-config.json';
+  a.click();
+  URL.revokeObjectURL(url);
+}
+function importPriceConfig(file) {
+  const reader = new FileReader();
+  reader.onload = e => {
+    try {
+      const parsed = JSON.parse(e.target.result);
+      priceConfig.base = parseFloat(parsed.base) || 0;
+      priceConfig.multipliers = { ...defaultMultipliers, ...(parsed.multipliers || {}) };
+      document.getElementById('basePrice').value = priceConfig.base || '';
+      renderMultGrid();
+      localStorage.setItem('roZeroPriceConfig', JSON.stringify(priceConfig));
+      calculate();
+    } catch (err) {
+      alert('ไฟล์ JSON ไม่ถูกต้อง');
+    }
+  };
+  reader.readAsText(file);
 }
 
 function populateSources() {
@@ -3330,6 +3429,7 @@ function renderStars(score, filled) {
   } else {
     detailScore.textContent = '';
   }
+  updatePriceEstimate(score);
 }
 
 sourceSel.addEventListener('change', populateSeries);
@@ -3340,7 +3440,18 @@ document.getElementById('resetBtn').addEventListener('click', () => {
   calculate();
 });
 
+document.getElementById('togglePriceBtn').addEventListener('click', () => {
+  document.getElementById('priceAdmin').classList.toggle('hidden');
+});
+document.getElementById('savePriceBtn').addEventListener('click', savePriceConfig);
+document.getElementById('exportPriceBtn').addEventListener('click', exportPriceConfig);
+document.getElementById('importPriceBtn').addEventListener('click', () => document.getElementById('importPriceFile').click());
+document.getElementById('importPriceFile').addEventListener('change', e => {
+  if (e.target.files[0]) importPriceConfig(e.target.files[0]);
+});
+
 populateSources();
+loadPriceConfig();
 </script>
 </body>
 </html>
